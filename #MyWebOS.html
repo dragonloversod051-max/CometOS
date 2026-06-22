@@ -1,0 +1,65 @@
+
+
+<!DOCTYPE html>
+<html>
+
+  <body></body>
+    
+    <div style = "border:solid; width:400px; border-radius: 10px; padding: 20px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(250, 250, 250, 0.9);">
+      <h1 style = "text-align: center; font-family:Comic Sans, cursive;">CometOS</h1>
+      <p>My name is <dfn>Comet</dfn>. Welcome to <dfn>CometOS</dfn>. Yes, I agree, very creative. Well, the answers to all <dfn>my</dfn> questions, are within...</p>
+      <body style="background-image: url('Arx Nubium.png'); background-size: cover;"></body>
+    </div>
+
+    <div style = "display:flex; background-color: rgba(227, 252, 255, 0.6); margin: 0px; padding: 0px; position: absolute; top: 0px; right: 0px; width: 100%; height: 50px;">
+      <p style = "position: absolute; top: 5px; margin: 15px; font-family: Marker Felt, fantasy;">CometOS</p>
+
+      <p id = "timeElement"; style = "position: absolute; top: 5px; font-family: serif; margin: 15px; right:0px;">
+        Time
+
+      </p>
+
+      <p id = "batteryElement"; style = "position: absolute; top:0px; left:50%; transform: translate(-50%); font-family: serif; margin: 15px;">
+        Battery</p>
+
+      <script>
+        function updateTime() {
+          var Time = new Date().toLocaleString('en-US', {hour12: true});
+          var timeText = document.querySelector("#timeElement");
+          timeText.innerHTML = Time;
+        }
+        function updateBattery() {
+          var Battery = navigator.getBattery().then(function(battery) {
+            var batteryLevel = battery.level * 100;
+            var batteryText = document.querySelector("#batteryElement");
+            if (batteryLevel >= 75) {
+              batteryText.innerHTML = "☀️Charged Up and Ready!☀️";
+            }
+            else if (batteryLevel>=50) {
+              batteryText.innerHTML = "🌗I Can Last A While!🌗";
+            }
+            else if (batteryLevel>=25) {
+              batteryText.innerHTML = "🌑I'm Running Low...🌑";
+            }
+            else if (batteryLevel>5) {
+              batteryText.innerHTML = "❄️Really, Really Low...";
+            }
+            else {
+              batteryText.innerHTML = "🚨I NEED CHARGE NOW! ABOUT TO DIE!🚨";
+            }
+          }
+          );        }
+        
+
+        updateTime();
+        updateBattery();
+
+        setInterval(updateTime, 1000);
+        setInterval(updateBattery, 10000);
+      </script>
+
+    </div>
+
+  </body>
+
+</html>
