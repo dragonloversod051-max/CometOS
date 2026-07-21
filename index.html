@@ -1,18 +1,33 @@
-
-
 <!DOCTYPE html>
 <html>
 
-  <body></body>
+  <body>
+
+    <head>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Playpen+Sans">
     
-    <div style = "border:solid; width:400px; border-radius: 10px; padding: 20px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: rgba(250, 250, 250, 0.9);">
+  <!--Welcome Window/ Intro window-->
+
+    <div class = "window" id = "welcome" style = " width:400px; background-color: rgba(250, 250, 250, 0.9);">
+      <p class = "closeButton" id = "welcomeClose">❌</p>
       <h1 style = "text-align: center; font-family:Comic Sans, cursive;">CometOS</h1>
-      <p>My name is <dfn>Comet</dfn>. Welcome to <dfn>CometOS</dfn>. Yes, I agree, very creative. Well, the answers to all <dfn>my</dfn> questions, are within...</p>
-      <body style="background-image: url('Arx Nubium.png'); background-size: cover;"></body>
+      <p style = "font-family: 'Times New Roman', Times, serif;">My name is <dfn>Comet</dfn>. Welcome to <dfn>CometOS</dfn>. Yes, I agree, very creative. Well, the answers to all <dfn>my</dfn> questions, are within...</p>
+      <body style="background-image: url('Arx Nubium.png'); background-size: cover; overflow-y: hidden;"></body>
+
+      <p class = "draggableWindow" id = "welcomeheader">
+        ✋
+      </p>
     </div>
 
-    <div style = "display:flex; background-color: rgba(227, 252, 255, 0.6); margin: 0px; padding: 0px; position: absolute; top: 0px; right: 0px; width: 100%; height: 50px;">
-      <p style = "position: absolute; top: 5px; margin: 15px; font-family: Marker Felt, fantasy;">CometOS</p>
+  <!--Top Bar-->
+    <div style = "top: 0px; right: 0px; pointer-events: none;" class = "bar" id = "topBar">
+      <div id = "welcomeOpen" style = "border: transparent; width: 80px; height:40px; border-radius: 20px; background-color: rgba(255, 255, 255, 0.9); margin: 5px; pointer-events: auto;">
+        <p style = "position: absolute; top:4px; left:2px; margin: 15px; font-family: Marker Felt, fantasy;">CometOS</p>
+      </div>
 
       <p id = "timeElement"; style = "position: absolute; top: 5px; font-family: serif; margin: 15px; right:0px;">
         Time
@@ -22,43 +37,50 @@
       <p id = "batteryElement"; style = "position: absolute; top:0px; left:50%; transform: translate(-50%); font-family: serif; margin: 15px;">
         Battery</p>
 
-      <script>
-        function updateTime() {
-          var Time = new Date().toLocaleString('en-US', {hour12: true});
-          var timeText = document.querySelector("#timeElement");
-          timeText.innerHTML = Time;
-        }
-        function updateBattery() {
-          var Battery = navigator.getBattery().then(function(battery) {
-            var batteryLevel = battery.level * 100;
-            var batteryText = document.querySelector("#batteryElement");
-            if (batteryLevel >= 75) {
-              batteryText.innerHTML = "☀️Charged Up and Ready!☀️";
-            }
-            else if (batteryLevel>=50) {
-              batteryText.innerHTML = "🌗I Can Last A While!🌗";
-            }
-            else if (batteryLevel>=25) {
-              batteryText.innerHTML = "🌑I'm Running Low...🌑";
-            }
-            else if (batteryLevel>5) {
-              batteryText.innerHTML = "❄️Really, Really Low...";
-            }
-            else {
-              batteryText.innerHTML = "🚨I NEED CHARGE NOW! ABOUT TO DIE!🚨";
-            }
-          }
-          );        }
-        
+    </div>
 
-        updateTime();
-        updateBattery();
+  <!--Bottom bar-->
+    <div class = "bar" style = "bottom: 0px; right: 0px; pointer-events: none;" id = "bottomBar">
 
-        setInterval(updateTime, 1000);
-        setInterval(updateBattery, 10000);
-      </script>
+      <div id = "NBicon" style = "width: 50px; height: 50px; position: absolute; left: 10px;">
+        <img src = "Notes icon.png" id = "notebookOpen" style = "width: 50px; height: 50px; position: absolute; pointer-events: auto;" id = "notebookOpen">
+      </div>
+
 
     </div>
+
+  <!--Notebook app-->
+
+    <div class = "window" id = "notebook" style = " width:500px; height: 700px; background-color: rgba(250, 250, 250, 1); display: none; max-height: 100%;">
+      <p class = "closeButton" id = "notebookClose">❌</p>
+        <div id = "NotesSidebar" style = "display: flex; flex-direction: column; background-color: rgba(228, 226, 226, 0.9); width: 80px; height: 100%; left: 0px; top:0px; bottom: 0px;" class = "bar"> 
+        <p class = "draggableWindow" id = "notebookheader">
+          ✋
+        </p>
+
+        
+      </div>
+     
+      <div style = "overflow-y: auto; max-height: 100%;">
+                <h1 style = "text-align: center; font-family: Comic Sans, cursive; ">Fantasy Notes</h1>
+
+          <!--Main Info-->
+          <div style = "margin-left: 180px;">
+            <p contenteditable = "false" style = "display: cover;">
+              <strong>Name: </strong>Comet
+              <br><strong>Academy: </strong>Arx Nubium
+              <br><strong>Year: </strong>1
+      </div>
+
+      <div id ="noteContent" style = "padding-left:0px; text-align:left;">
+
+      </div>
+
+  
+
+      <script src="script.js" charset="utf-8"></script>
+
+
 
   </body>
 
