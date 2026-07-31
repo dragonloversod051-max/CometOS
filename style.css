@@ -1,5 +1,5 @@
 
-
+/* #region Global Styles */
 .closeButton{
     cursor: pointer; 
     position: absolute; 
@@ -44,6 +44,21 @@ height: 50px;
 background-color: rgba(217, 255, 170, 0.8);
 }
 
+.Button{
+    width:106px; 
+    height: 54px; 
+    position: absolute;
+    background-color: transparent;
+    border-width: 0px;
+    border-radius: 10px;
+}
+
+.Button:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+/* #endregion */
+
+/* #region Notes Sidebar */
 .sbTitle{
     font-family: Playpen Sans;
     padding-top: 30px; 
@@ -59,4 +74,121 @@ background-color: rgba(217, 255, 170, 0.8);
     margin-left: 2px; 
     line-height: 0.5;
     margin-bottom: 0px;
+}
+
+/* #endregion */
+
+
+
+/* #region Character Buttons */
+
+#skålgardButton{
+    left: 35px;
+    top: 548px;
+}
+
+#calzarButton{
+    left: 159px;
+    top: 548px;
+}
+
+#torsteinButton{
+    left: 159px;
+    top: 435px;
+}
+
+#fulleriButton{
+    left: 35px;
+    top: 435px;
+}
+
+#caspianButton{
+    left: 159px;
+    top: 322px;
+}
+
+#runaButton{
+    left: 283px;
+    top: 322px;
+}
+
+#evelynButton{
+    left: 283px;
+    top: 435px;
+}
+
+#torrinButton{
+    left: 159px;
+    top: 209px;
+}
+
+#cometButton{
+    left: 343px;
+    top: 546px;
+    width:110px;
+    height: 58px;
+    position: absolute;
+    background-color: transparent;
+    border-width: 0px;
+    border-radius: 10px;
+}
+
+#cometButton:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#tavrocButton{
+    left: 407px;
+    top: 435px;
+}
+
+#calfordButton{
+    left: 531px;
+    top: 435px;
+}
+
+#sorchaButton{
+    left:655px;
+    top: 435px;
+}
+
+#valcoButton{
+    left:779px;
+    top: 435px;
+}
+
+#cassieButton{
+    left: 717px;
+    top: 548px;
+}
+
+#tenerisButton{
+    left: 407px;
+    top: 322px;
+}
+
+#kaelenButton{
+    left: 531px;
+    top: 322px;
+}
+
+#lyraButton{
+    left: 407px;
+    top: 209px;
+}
+
+#alvisButton{
+    left: 531px;
+    top: 209px;
+}
+
+#ericButton{
+    left: 531px;
+    top: 96px;
+}
+/* #endregion */
+
+.bottomBarIcon{
+    padding-right: 50px;    
+    pointer-events: auto;
 }
