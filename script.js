@@ -37,9 +37,11 @@ console.log("1");
 
 console.log("2");
 
+
 // Make the DIV element draggable:
 dragElement(document.getElementById("welcome"));
 dragElement(document.querySelector("#notebook"));
+dragElement(document.getElementById("familyTree"));
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
   // Step 2: Set up variables to keep track of the element's position.
@@ -68,11 +70,11 @@ function dragElement(element) {
     initialY = e.clientY;
     // Step 8: Set up event listeners for mouse movement (`elementDrag`) and mouse button release (`closeDragElement`).
     document.onmouseup = stopDragging;
-    document.onmousemove = dragElement;
+    document.onmousemove = elementDrag;
   }
 
   // Step 9: Define the `elementDrag` function to calculate the new position of the element based on mouse movement.
-  function dragElement(e) {
+  function elementDrag(e) {
     e = e || window.event;
     e.preventDefault();
     // Step 10: Calculate the new cursor position.
@@ -84,10 +86,11 @@ function dragElement(element) {
     let maxTop;
     let maxRight;
     
+    //Window specific draggable borders
     if (element.id === "welcome") {
 
       maxTop = Math.max(element.offsetTop - currentY, 95);
-      maxTop = Math.min(maxTop, 855);
+      maxTop = Math.min(maxTop, 858);
 
       maxRight = Math.min(element.offsetLeft - currentX, 1217);
       maxRight = Math.max(maxRight, 220);}
@@ -95,13 +98,25 @@ function dragElement(element) {
     else if (element.id === "notebook") {
       maxTop = Math.max(element.offsetTop - currentY, 372);
       maxTop = Math.min(maxTop, 1135);
-      console.log(maxTop)
+      console.log(maxTop) 
       
-      maxRight = Math.min(element.offsetLeft - currentX, 1217);
-      maxRight = Math.max(maxRight, 220);      
-    }
+      maxRight = Math.min(element.offsetLeft - currentX, 1167);
+      maxRight = Math.max(maxRight, 270);  }
+    
+    else if (element.id === "familyTree") {
+      maxTop = Math.max(element.offsetTop - currentY, 213);
+      maxTop = Math.min(maxTop, 975);
+
+      maxRight = Math.min(element.offsetLeft - currentX, 1112);
+      maxRight = Math.max(maxRight, 327);
+    } 
+
+
+    
     element.style.top = maxTop+ "px";
     element.style.left = maxRight + "px";
+
+
   }
 
   // Step 12: Define the `stopDragging` function to stop tracking mouse movement by removing the event listeners.
@@ -122,6 +137,7 @@ var topBar = document.querySelector("#topBar")
 //Closing the window
 var notebook = document.querySelector("#notebook")
 var welcomeScreen = document.querySelector("#welcome");
+var familyTree = document.querySelector("#familyTree")
 
 function closeWindow(element) {
   element.style.display = "none";
@@ -134,21 +150,26 @@ function openWindow(element) {
   topBar.style.zIndex = biggestIndex+1;
 }
 
+
 console.log("4");
 //closebutton
 var notebookClose = document.querySelector("#notebookClose");
 var welcomeScreenClose = document.querySelector("#welcomeClose")
+var familyTreeClose = document.querySelector("#familyTreeClose")
 
 //openbutton
 
 var welcomeScreenOpen = document.querySelector("#welcomeOpen")
 var notebookScreenOpen = document.querySelector("#notebookOpen")
+var familyTreeScreenOpen = document.querySelector("#familyTreeOpen")
 
 welcomeScreenClose.addEventListener("click", function() {
   closeWindow(welcomeScreen);
 });
 
 notebookClose.addEventListener("click", function() {closeWindow(notebook);});
+
+familyTreeClose.addEventListener("click", function() {closeWindow(familyTree);})
 
 welcomeScreenOpen.addEventListener("click", function() {
   openWindow(welcomeScreen);
@@ -157,6 +178,11 @@ welcomeScreenOpen.addEventListener("click", function() {
 notebookScreenOpen.addEventListener("click", function(){
   selectIcon(NBicon)
   openWindow(notebook)
+})
+
+familyTreeScreenOpen.addEventListener("click", function(){
+  selectIcon(familyTreeOpen)
+  openWindow(familyTree)
 })
 
 console.log("5");
@@ -191,6 +217,7 @@ function addWindowTapHandling(element){
 }
 addWindowTapHandling(welcomeScreen)
 addWindowTapHandling(notebook)
+addWindowTapHandling(familyTree)
 
 console.log("7");
 
@@ -298,3 +325,11 @@ for (let i = 0; i < content.length; i++) {
 }
 
 console.log("9");
+
+const img = document.getElementById("familyTreeImage");
+
+img.addEventListener("click", function (e) {
+    console.log(e.offsetX, e.offsetY);
+});
+
+
