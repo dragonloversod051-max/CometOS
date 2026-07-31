@@ -9,8 +9,11 @@
 
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Playpen+Sans">
+   
     
-  <!--Welcome Window/ Intro window-->
+
+
+  <!-- #region Welcome Window/ Intro window-->
 
     <div class = "window" id = "welcome" style = " width:400px; background-color: rgba(250, 250, 250, 0.9);">
       <p class = "closeButton" id = "welcomeClose">❌</p>
@@ -22,8 +25,12 @@
         ✋
       </p>
     </div>
+  <!-- #endregion -->
 
-  <!--Top Bar-->
+
+
+
+  <!-- #region Top Bar-->
     <div style = "top: 0px; right: 0px; pointer-events: none;" class = "bar" id = "topBar">
       <div id = "welcomeOpen" style = "border: transparent; width: 80px; height:40px; border-radius: 20px; background-color: rgba(255, 255, 255, 0.9); margin: 5px; pointer-events: auto;">
         <p style = "position: absolute; top:4px; left:2px; margin: 15px; font-family: Marker Felt, fantasy;">CometOS</p>
@@ -38,18 +45,85 @@
         Battery</p>
 
     </div>
+  <!-- #endregion-->
 
-  <!--Bottom bar-->
-    <div class = "bar" style = "bottom: 0px; right: 0px; pointer-events: none;" id = "bottomBar">
 
-      <div id = "NBicon" style = "width: 50px; height: 50px; position: absolute; left: 10px;">
-        <img src = "Notes icon.png" id = "notebookOpen" style = "width: 50px; height: 50px; position: absolute; pointer-events: auto;" id = "notebookOpen">
+
+
+
+  <!-- #region Bottom bar-->
+    <div class = "bar" style = "bottom: 0px; right: 0px; pointer-events: none; flex-direction: row;" id = "bottomBar">
+
+      <div id = "NBicon" class = "bottomBarIcon">
+        <img src = "Notes icon.png" id = "notebookOpen" style = "width: 50px; height: 50px;" id = "notebookOpen">
       </div>
 
+      <div id = "familyTreeOpen" class = "bottomBarIcon" >
+        <p style = "font-size: 40px; margin: 0px;">🌲</p>
+      </div>
 
     </div>
+  <!-- #endregion-->
 
-  <!--Notebook app-->
+
+
+
+
+  <!-- #region Family Tree App-->
+
+    <div class = "window" id = "familyTree" style = " width:650px; height:420px; display:none; overflow: hidden; padding: 0px; background-color: white;">
+      <div style = "background-color: rgba(228, 226, 226, 0.9); height: 35px;" >
+        <p class = "draggableWindow" id = "familyTreeheader">
+          ✋
+        </p>
+        <p class = "closeButton" id = "familyTreeClose" style = "position: absolute;">❌</p>
+        <p style = "font-family: Marker Felt, fantasy; padding-top: 10px; margin-top: 0px; text-align: center;"> Family Tree App</p>
+      </div>
+      
+      
+    <div style = "overflow: auto; top: 35px; bottom: 0px; left:0px; right: 0px; position: absolute;">
+      <div style = "position:relative;" id = "scrollArea">
+        <img src = 'CometOS Family Tree.png' style = "display: block;" id = "familyTreeImage">
+
+
+        <!-- #region All character buttons -->
+        <button id = "skålgardButton" class = "Button"></button>
+        <button id = "calzarButton" class = "Button"></button>
+        <button id = "torsteinButton" class = "Button"></button>
+        <button id = "fulleriButton" class = "Button"></button>
+        <button id = "caspianButton" class = "Button"></button>
+        <button id = "runaButton" class = "Button"></button>
+        <button id = "evelynButton" class = "Button"></button>
+        <button id = "torrinButton" class = "Button"></button>
+        <button id = "cometButton"></button>
+        <button id = "tavrocButton" class = "Button"></button>
+        <button id = "calfordButton" class = "Button"></button>
+        <button id = "sorchaButton" class = "Button"></button>
+        <button id = "valcoButton" class = "Button"></button>
+        <button id = "cassieButton" class = "Button"></button>
+        <button id = "tenerisButton" class = "Button"></button>
+        <button id = "kaelenButton" class = "Button"></button>
+        <button id = "lyraButton" class = "Button"></button>
+        <button id = "alvisButton" class = "Button"></button>
+        <button id = "ericButton" class = "Button"></button>
+        <!-- #endregion -->
+
+        <h1 style = "font-family: Comic Sans, cursive; text-align: left; padding-left: 100px; padding-top:0px; margin-top: 0px; position: absolute; top: 50px; font-size: 50px;"> My Family Tree </h1>
+        <p style = "position: absolute; left: 748px; top: 51px; color: rgb(194, 192, 192); width: 200px;">*Dotted lines mean the person is from several generations back - for example, a great great grandfather </p>
+      </div>
+    </div>
+    </div>  
+  <!-- #endregion-->
+
+
+
+
+
+
+
+  
+
+  <!-- #region Notebook app-->
 
     <div class = "window" id = "notebook" style = " width:500px; height: 700px; background-color: rgba(250, 250, 250, 1); display: none; max-height: 100%;">
       <p class = "closeButton" id = "notebookClose">❌</p>
@@ -59,7 +133,7 @@
         </p>
 
         
-      </div>
+    </div>
      
       <div style = "overflow-y: auto; max-height: 100%;">
                 <h1 style = "text-align: center; font-family: Comic Sans, cursive; ">Fantasy Notes</h1>
@@ -72,13 +146,12 @@
               <br><strong>Year: </strong>1
       </div>
 
-      <div id ="noteContent" style = "padding-left:0px; text-align:left;">
+      <div id ="noteContent" style = "padding-left:70px; text-align:left;">
 
-      </div>
-
-  
-
-      <script src="script.js" charset="utf-8"></script>
+      </div>  
+  <!--#endregion-->
+      
+  <script src="script.js" charset="utf-8"></script>
 
 
 
