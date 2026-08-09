@@ -19,7 +19,7 @@
       <p class = "closeButton" id = "welcomeClose">❌</p>
       <h1 style = "text-align: center; font-family:Comic Sans, cursive;">CometOS</h1>
       <p style = "font-family: 'Times New Roman', Times, serif;">My name is <dfn>Comet</dfn>. Welcome to <dfn>CometOS</dfn>. Yes, I agree, very creative. Well, the answers to all <dfn>my</dfn> questions, are within...</p>
-      <body style="background-image: url('Arx Nubium.png'); background-size: cover; overflow-y: hidden;"></body>
+      <body style="background-image: url('Arx Nubium.png'); background-size: cover; overflow-y: hidden; overflow-x: hidden;"></body>
 
       <p class = "draggableWindow" id = "welcomeheader">
         ✋
@@ -54,12 +54,14 @@
   <!-- #region Bottom bar-->
     <div class = "bar" style = "bottom: 0px; right: 0px; pointer-events: none; flex-direction: row;" id = "bottomBar">
 
-      <div id = "NBicon" class = "bottomBarIcon">
-        <img src = "Notes icon.png" id = "notebookOpen" style = "width: 50px; height: 50px;" id = "notebookOpen">
+      <div id = "NBicon" class = "bottomBarWrapper">
+        <img src = "Notes icon.png" id = "notebookOpen" style = "width: auto; height: 50px;" class = "bottomBarIcon">
       </div>
 
-      <div id = "familyTreeOpen" class = "bottomBarIcon" >
-        <p style = "font-size: 40px; margin: 0px;">🌲</p>
+      <div style = "width:50px;"> </div>
+
+      <div id = "familyTreeOpen" class = "bottomBarWrapper">
+        <p style = "font-size: 40px; margin: 0px;" class = "bottomBarIcon">🌲</p>
       </div>
 
     </div>
@@ -71,7 +73,7 @@
 
   <!-- #region Family Tree App-->
 
-    <div class = "window" id = "familyTree" style = " width:650px; height:420px; display:none; overflow: hidden; padding: 0px; background-color: white;">
+    <div class = "window" id = "familyTree" style = " width:650px; height:420px; display:none; overflow: visible; padding: 0px; background-color: white;">
       <div style = "background-color: rgba(228, 226, 226, 0.9); height: 35px;" >
         <p class = "draggableWindow" id = "familyTreeheader">
           ✋
@@ -95,7 +97,7 @@
         <button id = "runaButton" class = "Button"></button>
         <button id = "evelynButton" class = "Button"></button>
         <button id = "torrinButton" class = "Button"></button>
-        <button id = "cometButton"></button>
+        <button id = "cometButton" onclick="openProfile('comet')"></button>
         <button id = "tavrocButton" class = "Button"></button>
         <button id = "calfordButton" class = "Button"></button>
         <button id = "sorchaButton" class = "Button"></button>
@@ -112,7 +114,15 @@
         <p style = "position: absolute; left: 748px; top: 51px; color: rgb(194, 192, 192); width: 200px;">*Dotted lines mean the person is from several generations back - for example, a great great grandfather </p>
       </div>
     </div>
-    </div>  
+
+    <div id = "profileWindow" style = "background-color: rgb(249, 244, 231); width: 200px; height: fit-content; position: absolute; left: 650px; top:-3px; border-radius: 20px; border: solid; display: none;">
+      <h4 id = "profileName" style = "text-align: center; padding-bottom: 0px;"> </h4>
+      <p id = "profileDescription" style = "font-size: small; font-family: Comic Sans, cursive; text-align: center; padding-left: 5px; padding-right: 5px;"> </p>
+      <button style = "background-color: transparent; border: none; padding-left: 88px; color: rgb(164, 164, 164);" id = "profileClose"> <dfn>Back</dfn>  </button>
+    </div>
+    </div>
+    
+
   <!-- #endregion-->
 
 
