@@ -7,6 +7,8 @@ console.log("1");
           var timeText = document.querySelector("#timeElement");
           timeText.innerHTML = Time;
         }
+
+alert("1");
       function updateBattery() {
           var Battery = navigator.getBattery().then(function(battery) {
             var batteryLevel = battery.level * 100;
@@ -29,13 +31,13 @@ console.log("1");
           }
         );        }
         
-
+alert("2");
         updateTime();
         updateBattery();
 
         setInterval(updateTime, 1000);
         setInterval(updateBattery, 10000);
-
+alert("3);
 console.log("2");
 
 
@@ -487,3 +489,5 @@ var profileWindow = document.getElementById("profileWindow");
 
 
 // #endregion
+
+alert("4");
