@@ -1,6 +1,4 @@
 alert("JS LOADED");
-        alert("1");
-
 console.log("1");        
         function updateTime() {
           var Time = new Date().toLocaleString('en-US', {hour12: true});
