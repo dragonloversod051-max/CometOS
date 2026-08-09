@@ -1,3 +1,4 @@
+alert("JS LOADED");
 
 console.log("1");
         
