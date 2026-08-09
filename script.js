@@ -109,9 +109,8 @@ function dragElement(element) {
 
       maxRight = Math.min(element.offsetLeft - currentX, 1112);
       maxRight = Math.max(maxRight, 327);
+
     } 
-
-
     
     element.style.top = maxTop+ "px";
     element.style.left = maxRight + "px";
@@ -333,3 +332,157 @@ img.addEventListener("click", function (e) {
 });
 
 
+// #region Profile Window
+const characters = {
+  fulleri: {
+    name: "Fulleri",
+    description: "An accountant with a desire for order - occasionally too much of it."
+  },
+
+  torstein: {
+    name: "Torstein",
+    description: "A Weapons Tester and Blacksmith with extraordinarily good combat skill."
+  },
+
+  skålgard: {
+    name: "Skålgard",
+    description: "One of the best swordfighters in the family, beaten only by Comet herself. Serious, smart, and skilled."
+  },
+
+  calzar: {
+    name: "Calzar",
+    description: `
+    <p> The happy-go-lucky younger brother, Calzar is one of the most trustworthy people you could ever meet.
+     While not always the sharpest tool in the shed, he does have his moments. </p>`
+  },
+
+  runa: {
+    name: "Runa",
+    description: `<p> A runic translator, inscriber, and mage, Runa worked earnestly on several official
+    projects to uncover the history of the continent for all of Alarica. </p>`
+  },
+
+  caspian: {
+    name: "Caspian",
+    description: `<p> Seafarer by profession and by heart, Caspian is among the best of sailors and captains 
+    you could hope to come across. With an inherent sense of the air and the sea, Captain Caspian became one
+    of the best navigators to ever sail the Six Straits. </p> `
+  },
+
+  torrin: {
+    name: "Torrin the Nefarious",
+    description: `<p> Centuries ago, during the reign of the great King Eric IV, Torrin the Nefarious terrorized 
+    the Six Straits and the waters that lay beyond them. Of the few pirates alive at the time, all had reached
+    the heights of infamy, but only one's name passed into legend. For while the ruthless pirate had terrorized the
+    hearts and souls of all who lived by the coast, <s> he had had one last redeemable action. In the Final Battle
+    of</s>`
+  },
+
+  evelyn: {
+    name: "Evelyn of Crystfall",
+    description: `<p> A relseiðric with a key eye for adventure. Figuring out the science behind the relseiðrs
+     more often than not leads her to the farthest reaches of the continent. </p>`
+  },
+
+  tavroc: {
+    name: "Tavroc",
+    description: `<p> Possibly being descended of royal blood, Tavroc is also the Rimem mage in the Castle of Skyroot
+    - one of its highest positions. He can perform Tidal magic - assosciated with water, currents, and the moons.
+     He is smart, kind, and funny </p>`
+  },
+
+  calford: {
+    name: "Calford",
+    description: `<p> The fun-loving uncle, Calford has - according to Comet - one of the coolest jobs ever.
+     Calford is a starmapper - an explorer. Starmappers map the uncharted areas of the continent and planet - 
+     often going so far that the only guide back home is the positions of the stars. </p>`
+  },
+
+  sorcha: {
+    name: "Sorcha",
+    description: `<p> A sorceress with a pretentious disposition and a smirk that delights in petty victories 
+    - many a times gotten through the misuse of Dune magic - connecting her to the power of the Sun, light, and
+    flames. </p>`
+  },
+  
+  valco: {
+    name: "Valco",
+    description: "Commander in the army of Skyroot, with an unfortunate mean streak for his soldiers. </p>"
+  },
+
+  cassie: {
+    name: "Cassie",
+    description: `<p> The spoilt, mean cousin. Comet, Skålgard and Calzar often stay far away from her. This,
+    however, doesn't stop Cassie from trying to ruin any game they play - or, for that matter, anything they do. </p>`
+  },
+
+  teneris: {
+    name: "Teneris",
+    description: `<p>A treasure hunter who spent half her life searching for the 'The Gift of Marcin', a legendary
+     treasure hidden even to this day. With vast, untold wealth, artifacts, and knowledge, The Gift of Marcin
+     is the most sought after treasure in all of Alarica.</p>`
+  },
+
+  kaelen: {
+    name: "Kaelen",
+    description: `<p> One of the most important scouts under the Castle of Skyroot. His information created the 
+    opportunity for Skyroot, at the last second, to win the war against Cinderheim. </p>`
+  },
+
+  lyra: {
+    name: "Lyra",
+    description: `<p> A smart, kind healer, who smuggled people in need into the Citadel (which used to be corrupt
+    at the time; hence the need to smuggle). While the history books may not remember her, the people she helped
+    certainly will.</p>`
+  },
+
+  alvis: {
+    name: "Remim Mage Alvis",
+    description: `<p> The Remim(high) mage of the Citadel, Alvis had extensive knowledge of magic and relseiðrs.
+    While being in one of the highest, most important posts of the Citadel, Alvis had a kind heart. His magic,
+    combined with his wife's intelligence allowed for one of the most successful refugee support operations ever
+    to be carried out. </p>`
+  },
+
+  eric: {
+    name: "King Eric IV of Skorgard",
+    description: `<p> Long ago, the continent of Alarica was split into five major kingdoms. Skorgard was the largest.
+    That also meant it was harder to control. After a great civil war, Skorgard broke apart into smaller, regional
+     empires such as Skyroot and Crystfall. King Eric IV was the Last King of Skorgard. It was due to him that the
+     final seperation unfolded without bloodshed, unlike the long civil war that had led to it, fueled by his
+     predecessors. </p>`
+  },
+
+  comet: {
+    name: "Comet",
+    description: `<p> Who is Comet? Well, thats what this entire workspace is designed to answer. Go find
+    out yourself, adventurer </p>`
+  },
+}
+
+function openProfile(person) {
+  openWindow(document.getElementById("profileWindow"));
+
+  document.getElementById("profileName").innerText = characters[person].name;
+  
+  document.getElementById("profileDescription").innerHTML = characters[person].description;
+}
+
+document.querySelectorAll(".Button").forEach(button => {
+  button.onclick = function () {
+    let person = button.id.replace("Button", "");
+    openProfile(person);
+  };
+  
+});
+
+document.getElementById("profileClose").addEventListener("click", function() {
+  closeWindow(document.getElementById("profileWindow"))
+});
+
+
+var profileWindow = document.getElementById("profileWindow");
+
+
+
+// #endregion
