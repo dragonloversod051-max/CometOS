@@ -3,7 +3,6 @@ console.log("1");
         
         function updateTime() {
           var Time = new Date().toLocaleString('en-US', {hour12: true});
-                                          alert("1");
 
           var timeText = document.querySelector("#timeElement");
           timeText.innerHTML = Time;
