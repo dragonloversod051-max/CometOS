@@ -5,10 +5,11 @@ console.log("1");
         function updateTime() {
           var Time = new Date().toLocaleString('en-US', {hour12: true});
           var timeText = document.querySelector("#timeElement");
+                alert("1");
+
           timeText.innerHTML = Time;
         }
 
-alert("1");
       function updateBattery() {
           var Battery = navigator.getBattery().then(function(battery) {
             var batteryLevel = battery.level * 100;
