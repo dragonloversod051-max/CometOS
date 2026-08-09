@@ -1,7 +1,12 @@
 alert("JS LOADED");
-console.log("1");        
+
+
+console.log("1");
+        
         function updateTime() {
           var Time = new Date().toLocaleString('en-US', {hour12: true});
+                                          alert("1");
+
           var timeText = document.querySelector("#timeElement");
           timeText.innerHTML = Time;
         }
@@ -28,13 +33,13 @@ console.log("1");
           }
         );        }
         
-alert("2");
+
         updateTime();
         updateBattery();
 
         setInterval(updateTime, 1000);
         setInterval(updateBattery, 10000);
-alert("3);
+
 console.log("2");
 
 
@@ -486,5 +491,3 @@ var profileWindow = document.getElementById("profileWindow");
 
 
 // #endregion
-
-alert("4");
