@@ -1,8 +1,7 @@
 alert("JS LOADED");
-
-console.log("1");
         alert("1");
-        
+
+console.log("1");        
         function updateTime() {
           var Time = new Date().toLocaleString('en-US', {hour12: true});
           var timeText = document.querySelector("#timeElement");
