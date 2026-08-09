@@ -188,7 +188,11 @@ background-color: rgba(217, 255, 170, 0.8);
 }
 /* #endregion */
 
-.bottomBarIcon{
-    padding-right: 50px;    
+.bottomBarIcon{  
     pointer-events: auto;
+    text-align: center;
+}
+
+.bottomBarWrapper{
+    box-sizing: content-box;
 }
