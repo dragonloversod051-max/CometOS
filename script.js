@@ -85,39 +85,11 @@ function dragElement(element) {
     initialX = e.clientX;
     initialY = e.clientY;
     // Step 11: Update the element's new position by modifying its `top` and `left` CSS properties.
-    let maxTop;
-    let maxRight;
-    
-    //Window specific draggable borders
-    if (element.id === "welcome") {
+    var newLeft = element.offsetLeft - currentX;
+    var newTop = element.offsetTop - currentY;
 
-      maxTop = Math.max(element.offsetTop - currentY, 95);
-      maxTop = Math.min(maxTop, 858);
-
-      maxRight = Math.min(element.offsetLeft - currentX, 1217);
-      maxRight = Math.max(maxRight, 220);}
-
-    else if (element.id === "notebook") {
-      maxTop = Math.max(element.offsetTop - currentY, 372);
-      maxTop = Math.min(maxTop, 1135);
-      console.log(maxTop) 
-      
-      maxRight = Math.min(element.offsetLeft - currentX, 1167);
-      maxRight = Math.max(maxRight, 270);  }
-    
-    else if (element.id === "familyTree") {
-      maxTop = Math.max(element.offsetTop - currentY, 213);
-      maxTop = Math.min(maxTop, 975);
-
-      maxRight = Math.min(element.offsetLeft - currentX, 1112);
-      maxRight = Math.max(maxRight, 327);
-
-    } 
-    
-    element.style.top = maxTop+ "px";
-    element.style.left = maxRight + "px";
-
-
+    element.style.top = newTop + "px";
+    element.style.left = newLeft + "px";
   }
 
   // Step 12: Define the `stopDragging` function to stop tracking mouse movement by removing the event listeners.
