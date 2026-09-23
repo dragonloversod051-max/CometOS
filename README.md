@@ -2,7 +2,9 @@
 
 This is a WebOS designed for a fictional character- Comet of the continent of Alarica, a student at an academy known as the Arx Nubium.
 
-<img width="1440" height="813" alt="Screenshot 2026-08-09 at 8 50 03 AM" src="https://github.com/user-attachments/assets/4a41df84-eac4-4396-9d3e-34621bde2db4" />
+<img width="1440" height="813" alt="Screenshot 2026-09-23 at 7 18 12 PM" src="https://github.com/user-attachments/assets/e894e9e3-8f75-4bf6-af7e-4a179f99d673" />
+
+
 
     
 
@@ -22,7 +24,8 @@ Click on the link to open it and run CometOS in your browser!
 
 ### Credits:
 
-The background image was a free Pixabay resource from user tukinoorora - <img width="720" height="411" alt="Screenshot 2026-09-22 at 2 33 39 PM" src="https://github.com/user-attachments/assets/72aaa94d-7396-48a6-a8da-01b8320b5d5f" />.
+The background image was a free Pixabay resource from user SSidde -<img width="780" height="461" alt="Screenshot 2026-09-23 at 7 15 13 PM" src="https://github.com/user-attachments/assets/47862e89-8ed1-45dc-8753-840f2f680b41" />
+
 It was then edited in Canva to appear the way it is now.
 
 AI usage declaration: I used Chatgpt, Gemini (occasionally) and the inbuilt AI help in VS Code to help in understanding sections of code and debugging where I simply couldn't. Overall, usage was medium - it did not write my code but I used it to help me understand the code and what went wrong.
