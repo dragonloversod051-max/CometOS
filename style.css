@@ -30,7 +30,7 @@
 
 .bar{
 display:flex; 
-background-color: rgba(227, 252, 255, 0.6); 
+background-color: rgba(117, 155, 159, 0.6); 
 margin: 0px; 
 padding: 0px; 
 position: absolute;
@@ -194,5 +194,4 @@ background-color: rgba(217, 255, 170, 0.8);
 
 .bottomBarWrapper{
     box-sizing: content-box;
-}
 }
