@@ -28,6 +28,6 @@ The background image was a free Pixabay resource from user SSidde -<img width="7
 
 It was then edited in Canva to appear the way it is now.
 
-AI usage declaration: I used Chatgpt, Gemini (occasionally) and the inbuilt AI help in VS Code to help in understanding sections of code and debugging where I simply couldn't. Overall, usage was medium - it did not write my code but I used it to help me understand the code and what went wrong.
+AI usage declaration: I used Chatgpt, Gemini (occasionally) and the inbuilt AI help in VS Code to help in understanding sections of code and debugging where I simply couldn't. However, it DID NOT WRITE my code, it simply helped me understand methods, functions, and parts of it. The code itself is written by me.
 
 
