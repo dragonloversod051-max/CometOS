@@ -11,7 +11,7 @@ This is a WebOS designed for a fictional character- Comet of the continent of Al
 ## Try it yourself: 
 https://dragonloversod051-max.github.io/CometOS/
 Click on the link to open it and run CometOS in your browser!
-(Not Recommended for Mobile or devices using touchscreen - laptops with it are fine, just use the touchpad/mouse)
+(NOT RECOMMENDED FOR MOBILE OR DEVICES USING TOUCHSCREEN - LAPTOPS WITH IT ARE FINE, JUST USE THE TOUCHPAD/MOUSE)
 
 ### Features:
 - A notebook app with an autosave feature - not just Comet's entry, you can even add your own!
