@@ -8,18 +8,18 @@
     </head>
 
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Playpen+Sans">
+    href="https://fonts.googleapis.com/css?family=Playpen+Sans|Oldenburg">
    
     
 
 
   <!-- #region Welcome Window/ Intro window-->
 
-    <div class = "window" id = "welcome" style = " width:400px; background-color: rgba(250, 250, 250, 0.9);">
+    <div class = "window" id = "welcome" style = " width:400px; background-color: rgba(250, 250, 250, 0.4); backdrop-filter: blur(15px);">
       <p class = "closeButton" id = "welcomeClose">❌</p>
       <h1 style = "text-align: center; font-family:Comic Sans, cursive;">CometOS</h1>
       <p style = "font-family: 'Times New Roman', Times, serif;">My name is <dfn>Comet</dfn>. Welcome to <dfn>CometOS</dfn>. Yes, I agree, very creative. Well, the answers to all <dfn>my</dfn> questions, are within...</p>
-      <body style="background-image: url('Landscape.png'); background-size: cover; overflow-y: hidden; overflow-x: hidden;"></body>
+      <body style="background-size: cover; overflow-y: hidden; overflow-x: hidden;"></body>
 
       <p class = "draggableWindow" id = "welcomeheader">
         ✋
@@ -36,12 +36,12 @@
         <p style = "position: absolute; top:4px; left:2px; margin: 15px; font-family: Marker Felt, fantasy;">CometOS</p>
       </div>
 
-      <p id = "timeElement"; style = "position: absolute; top: 5px; font-family: serif; margin: 15px; right:0px; color: white;">
+      <p id = "timeElement"; style = "position: absolute; top: 5px; font-family: serif; margin: 15px; right:0px;">
         Time
 
       </p>
 
-      <p id = "batteryElement"; style = "position: absolute; top:0px; left:50%; transform: translate(-50%); font-family: serif; margin: 15px; color: white;">
+      <p id = "batteryElement"; style = "position: absolute; top:0px; left:50%; transform: translate(-50%); font-family: serif; margin: 15px;">
         Battery</p>
 
     </div>
@@ -64,6 +64,23 @@
         <p style = "font-size: 40px; margin: 0px;" class = "bottomBarIcon">🌲</p>
       </div>
 
+      <div style = "width: 50px;"> </div>
+
+      <div id = "relseiðrIcon" class = "bottomBarWrapper">
+        <img src = "Relseiðr Book Icon.png" id = "relseiðrOpen" class = "bottomBarIcon" style = "height: 50px; width: auto;">
+      </div>
+
+      <div style = "width: 50px;"> </div>
+
+      <div id = "settingsIcon" class = "bottomBarWrapper">
+        <p class = "bottomBarIcon" style = "font-size: 40px; margin-top: 0px;" id = "settingsOpen">⚙️</p>
+      </div>
+
+      <div style = "width: 50px;"> </div>
+
+      <div id = "calculatorIcon" class = "bottomBarWrapper">
+        <img src = "calculator.png" id = "calculatorOpen" class = "bottomBarIcon" style = "height: 50px; width: auto;">
+      </div>
     </div>
   <!-- #endregion-->
 
@@ -126,24 +143,20 @@
   <!-- #endregion-->
 
 
-
-
-
-
-
   
 
   <!-- #region Notebook app-->
 
-    <div class = "window" id = "notebook" style = " width:500px; height: 700px; background-color: rgba(250, 250, 250, 1); display: none; max-height: 100%;">
+    <div class = "window" id = "notebook" style = " width:500px; height: 650px; background-color: rgba(250, 250, 250, 1); display: none; max-height: 100%;">
       <p class = "closeButton" id = "notebookClose">❌</p>
         <div id = "NotesSidebar" style = "display: flex; flex-direction: column; background-color: rgba(228, 226, 226, 0.9); width: 80px; height: 100%; left: 0px; top:0px; bottom: 0px;" class = "bar"> 
-        <p class = "draggableWindow" id = "notebookheader">
-          ✋
-        </p>
+
 
         
     </div>
+        <p class = "draggableWindow" id = "notebookheader">
+          ✋
+        </p>
      
       <div style = "overflow-y: auto; max-height: 100%;">
                 <h1 style = "text-align: center; font-family: Comic Sans, cursive; ">Fantasy Notes</h1>
@@ -154,13 +167,141 @@
               <strong>Name: </strong>Comet
               <br><strong>Academy: </strong>Arx Nubium
               <br><strong>Year: </strong>1
+            </p>
       </div>
 
       <div id ="noteContent" style = "padding-left:70px; text-align:left;">
 
       </div>  
+      </div>
+    </div>
   <!--#endregion-->
       
+
+
+  <!-- #region Relseithur Info app-->
+
+    <div class = "window" id = "relseithurInfo" style = "width: 500px; height: 600px; overflow: visible; padding:0px; margin: 0px; border-color: rgb(150, 100, 40); border-width: 20px; background-color: bisque; display: none;">
+      <button id = "relseithurNext" style = "right: 0px; position: absolute; top: 50%; transform: translate(50);">NEXT</button>
+      
+      <div id = "heading">
+        <p style = "top: 0px; position: absolute; font-size: 50px; left: 50%; transform: translate(-50%,0);">Relseiðrs</p>
+      </div>
+        
+        
+      <div id = "body"> 
+        <p style = "padding-top: 120px; padding-left: 20px; padding-right: 20px; font-family: Oldenburg;">
+          Relseiðrs are, to be simple, elements. They are elements that go beyond, far beyond 
+          the 118 known to mankind. The reason they are so set apart is because relseiðrs have
+          magical properties.
+
+          <br><br>
+
+          They are imbued with Arcane energy, and are therefore used in a multitude of functions, ranging
+          from spellcasting to being used in Cloudboards, or in enhanced items. Some famous relseiðrs
+          which nearly every member of Alarica has heard about include Xarenium, Vylium, Mantica, and 
+          Asteria.
+
+          <br><br>
+
+          Relseiðrs also react and combine differently to normal elements. The nature and laws however,
+          are not entirely known, though we have still managed to lay aside a few theorums and certainties
+          about how certain relseiðrs will combine in specific quantities.
+
+          <br><br>
+
+          To start, Relseiðrs are divided into classes. Each class is given a ranking, ranging from Common, to
+          Rare, to Exotic, to Legendary. (And of course, there are about a hundred subdivisions as well. These <dfn>are</dfn>
+           Relseiðrs, after all). Classes ranked Common through Rare always produce more material than it
+           started with. Classes ranked higher produce less material. And there are reactions where you
+           can interchange rarites and classes, and a whole bunch of other things. Essentially, these mystical
+           elements behave as wildly as their power does.
+        </p>
+      </div>
+
+    </div>
+
+
+  <!-- #endregion-->
+
+
+
+  <!-- #region Settings App-->
+
+    <div id = "settings" class = "window" style = "width: 560px; height: 300px; background-color: rgba(255, 255, 255, 1); overflow-y: scroll; display: none;">
+      <p class = "closeButton" id = "settingsClose">❌</p>
+      <p class = "draggableWindow" id = "settingsheader">✋</p>
+
+      <p style = "right: 50%; position: absolute; transform: translate(50%, 0); top: 5px; padding: 0px; margin: 0px; font-size: 40px; font-family: Oldenburg;">Settings</p>
+
+      <div style = "padding-top: 50px;"> </div>
+
+      <p style = "font-family: Oldenburg;">Wallpaper:</p>
+
+      <div style = "display: flexbox;">
+        <button id = "WP1" class = "buttonWP"> <img src = 'Landscape.png' class = "settingsWP"> </button>
+
+        <button id = "WP2" class = "buttonWP"> <img src = 'WP2.jpg' class = "settingsWP" ></button>
+
+        <button id = "WP3" class = "buttonWP"> <img src = 'WP3.jpg' class = "settingsWP" ></button>
+
+        <button id = "WP4" class = "buttonWP"> <img src = 'WP4.jpg' class = "settingsWP"></button>
+      </div>
+    </div>
+
+
+
+
+  <!-- #endregion-->
+
+
+
+  <!-- #region Calculator app -->
+
+  <div class = "window" style = "height: 650px; width: 500px; background-color: rgb(40, 40, 40); display: none;" id = "calculator">
+    <p id = "calculatorheader" class = "draggableWindow">✋</p>
+    <p class = "closeButton" id = "calculatorClose">❌</p>
+
+    <input readonly id = "calcDisplay" type = "text">
+  
+  </input>
+
+    <div class = "calcButton" style = "display: grid; grid-template-columns: repeat(4, 1fr);">
+      <button id = "C7" class = "numPad C7" onclick = "getNumber('7')">7</button>
+      <button id = "C8" class = "numPad" onclick = "getNumber('8')">8</button>
+      <button id = "C9" class = "numPad" onclick = "getNumber('9')">9</button>
+
+      <button id = "AC" class = "funcB" onclick = "clearDisplay()">AC</button>
+
+      <button id = "C4" class = "numPad forthcoming" onclick = "getNumber('4')">4</button>
+      <button id = "C5" class = "numPad" onclick = "getNumber('5')">5</button>
+      <button id = "C6" class = "numPad" onclick = "getNumber('6')">6</button>
+
+      <button id = "x" class = "funcB" onclick = "getOperator('*')">x</button>
+
+
+      <button id = "C1" class = "numPad forthcoming" onclick = "getNumber('1')">1</button>
+      <button id = "C2" class = "numPad" onclick = "getNumber('2')">2</button>
+      <button id = "C3" class = "numPad" onclick = "getNumber('3')">3</button>
+
+      <button id = "+" class = "funcB" onclick = "getOperator('+')">+</button>
+
+      <button id = "0" class = "numPad forthcoming" onclick = "getNumber('0')">0</button>
+      <button id = "fullstop" class = "numPad" onclick = "getNumber('.')">.</button>
+      
+      <button id = "/" class = "funcB" onclick = "getOperator('/')">/</button>
+      <button id = "minus" class = "funcB" onclick = "getOperator('-')">-</button>
+      
+      
+      <button id = "equalto" class = "funcB" onclick = "calculate()" style = "grid-column: 1/-1; width: 90%;">=</button>
+
+
+    </div>
+  </div>
+
+
+  <!-- #endregion-->
+
   <script src="script.js" charset="utf-8"></script>
 
 
