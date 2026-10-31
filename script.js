@@ -44,6 +44,9 @@ console.log("2");
 dragElement(document.getElementById("welcome"));
 dragElement(document.querySelector("#notebook"));
 dragElement(document.getElementById("familyTree"));
+dragElement(document.getElementById("relseithurInfo"));
+dragElement(document.getElementById("settings"));
+dragElement(document.getElementById("calculator"));
 // Step 1: Define a function called `dragElement` that makes an HTML element draggable.
 function dragElement(element) {
   // Step 2: Set up variables to keep track of the element's position.
@@ -51,6 +54,8 @@ function dragElement(element) {
   var initialY = 0;
   var currentX = 0;
   var currentY = 0;
+  var windowStartX = 0;
+  var windowStartY = 0;
 
   // Step 3: Check if there is a special header element associated with the draggable element.
   if (document.getElementById(element.id + "header")) {
@@ -70,6 +75,14 @@ function dragElement(element) {
     // Step 7: Get the mouse cursor position at startup.
     initialX = e.clientX;
     initialY = e.clientY;
+
+    // Keep the window in the same place when removing its centering transform.
+    var position = element.getBoundingClientRect();
+    windowStartX = position.left;
+    windowStartY = position.top;
+    element.style.transform = "none";
+    element.style.left = windowStartX + "px";
+    element.style.top = windowStartY + "px";
     // Step 8: Set up event listeners for mouse movement (`elementDrag`) and mouse button release (`closeDragElement`).
     document.onmouseup = stopDragging;
     document.onmousemove = elementDrag;
@@ -80,16 +93,17 @@ function dragElement(element) {
     e = e || window.event;
     e.preventDefault();
     // Step 10: Calculate the new cursor position.
-    currentX = initialX - e.clientX;
-    currentY = initialY - e.clientY;
-    initialX = e.clientX;
-    initialY = e.clientY;
-    // Step 11: Update the element's new position by modifying its `top` and `left` CSS properties.
-    var newLeft = element.offsetLeft - currentX;
-    var newTop = element.offsetTop - currentY;
+
+    var shiftX = e.clientX - initialX;
+    var shiftY = e.clientY - initialY;
+    var maxTop = bottomBar.getBoundingClientRect().top;
+    var maxLeft = window.innerWidth - element.offsetWidth;
+    var newTop = Math.max(0, Math.min(maxTop, windowStartY + shiftY));
+    var newLeft = Math.max(0, Math.min(maxLeft, windowStartX + shiftX));
 
     element.style.top = newTop + "px";
     element.style.left = newLeft + "px";
+
   }
 
   // Step 12: Define the `stopDragging` function to stop tracking mouse movement by removing the event listeners.
@@ -108,9 +122,11 @@ var topBar = document.querySelector("#topBar")
 
 
 //Closing the window
-var notebook = document.querySelector("#notebook")
+var notebook = document.querySelector("#notebook");
 var welcomeScreen = document.querySelector("#welcome");
-var familyTree = document.querySelector("#familyTree")
+var familyTree = document.querySelector("#familyTree");
+var settings = document.querySelector("#settings");
+var calculator = document.querySelector("#calculator")
 
 function closeWindow(element) {
   element.style.display = "none";
@@ -127,14 +143,18 @@ function openWindow(element) {
 console.log("4");
 //closebutton
 var notebookClose = document.querySelector("#notebookClose");
-var welcomeScreenClose = document.querySelector("#welcomeClose")
-var familyTreeClose = document.querySelector("#familyTreeClose")
+var welcomeScreenClose = document.querySelector("#welcomeClose");
+var familyTreeClose = document.querySelector("#familyTreeClose");
+var settingsClose = document.querySelector("#settingsClose");
+var calculatorClose = document.querySelector("#calculatorClose")
 
 //openbutton
 
 var welcomeScreenOpen = document.querySelector("#welcomeOpen")
 var notebookScreenOpen = document.querySelector("#notebookOpen")
 var familyTreeScreenOpen = document.querySelector("#familyTreeOpen")
+var settingsScreenOpen = document.querySelector("#settingsOpen")
+var calculatorScreenOpen = document.querySelector("#calculatorOpen")
 
 welcomeScreenClose.addEventListener("click", function() {
   closeWindow(welcomeScreen);
@@ -142,7 +162,12 @@ welcomeScreenClose.addEventListener("click", function() {
 
 notebookClose.addEventListener("click", function() {closeWindow(notebook);});
 
-familyTreeClose.addEventListener("click", function() {closeWindow(familyTree);})
+familyTreeClose.addEventListener("click", function() {closeWindow(familyTree);});
+
+settingsClose.addEventListener("click", function() {closeWindow(settings);});
+
+calculatorClose.addEventListener("click", function() {closeWindow(calculator);});
+
 
 welcomeScreenOpen.addEventListener("click", function() {
   openWindow(welcomeScreen);
@@ -156,6 +181,16 @@ notebookScreenOpen.addEventListener("click", function(){
 familyTreeScreenOpen.addEventListener("click", function(){
   selectIcon(familyTreeOpen)
   openWindow(familyTree)
+})
+
+settingsScreenOpen.addEventListener("click", function() {
+  selectIcon(settingsOpen)
+  openWindow(settings)
+})
+
+calculatorScreenOpen.addEventListener("click", function() {
+  selectIcon(calculatorOpen)
+  openWindow(calculator)
 })
 
 console.log("5");
@@ -191,6 +226,8 @@ function addWindowTapHandling(element){
 addWindowTapHandling(welcomeScreen)
 addWindowTapHandling(notebook)
 addWindowTapHandling(familyTree)
+addWindowTapHandling(settings)
+addWindowTapHandling(calculator)
 
 console.log("7");
 
@@ -216,7 +253,18 @@ var content = [
                   It's massive - both in size and in name. It's a castle on a floating island!
 
             <br><br> It means "The Citadel of Clouds". And, honestly, when you look at it, it really is!
-          
+
+            <br><br> We've got loads of classes here. And we can choose most of them. This is mine:
+            
+            <ul>
+              <li> Swordfighting (I mean, obviously)</li>
+              <li> Exploration </li>
+              <li> Ship / Flymaster building </li>
+              <li> Archery <li>
+              <dfn> All of these are from a package called 'The Pirate Training Program'. Don't worry, its 
+              not what you think.</dfn>
+              <li> Spellbound (this is the spells and magic class) </li>
+            </ul>          
             <br><br> Well, I gotta go to class now. I'll write more later. Goodbye!
           </p>
         </div>
@@ -228,8 +276,8 @@ var content = [
     title: `<p class = "sbTitle">New Note</p>`,
     date: `<p class = "sbDate">12/7/2026</p>`,
     content: `
-      <div style = "font-family: Playpen Sans; padding-left: 0px; padding-right: 20px; " contenteditable = "true" id = "editableNote">
-        <p style = "padding-top: 20px;">
+      <div style = "font-family: Playpen Sans; padding-left: 0px; padding-right: 20px; padding-top: 0px; padding-bottom: 0px;" contenteditable = "true" id = "editableNote" class = "nbNote">
+        <p>
           Here's some sample text
         </p>
       </div>
@@ -459,4 +507,167 @@ var profileWindow = document.getElementById("profileWindow");
 
 
 
+// #endregion
+
+
+
+// #region Settings
+
+function selectWPButton(event) {
+  var targetElement = event.currentTarget
+  targetElement.classList.add("selectedWPButton");
+
+  if (targetElement.id === "WP1") {
+    document.body.style.backgroundImage = "url('Landscape.png')"
+    localStorage.setItem("WP", "white")
+  }
+
+  else if (targetElement.id === "WP2") {
+    document.body.style.backgroundImage = "url('WP2.jpg')"
+    localStorage.setItem("WP", "alien")
+  }
+
+  else if (targetElement.id === "WP3") {
+    document.body.style.backgroundImage = "url('WP3.jpg')"
+    localStorage.setItem("WP", "mushroom")
+  }
+
+  else if (targetElement.id === "WP4") {
+    document.body.style.backgroundImage = "url('WP4.jpg')"
+    localStorage.setItem("WP", "blue")
+  }
+
+}
+
+function deselectWPButton() {
+  document.querySelectorAll('.selectedWPButton').forEach(function(button) {
+    button.classList.remove("selectedWPButton");
+  });
+  }
+
+
+function handleWPButton() {
+  deselectWPButton(event);
+  selectWPButton(event);
+}
+
+document.querySelectorAll('.buttonWP').forEach(function(button) {
+  button.addEventListener('click', handleWPButton)
+})
+
+
+var savedWP = localStorage.getItem("WP")
+
+if (savedWP === "white") {
+  document.body.style.backgroundImage = "url('Landscape.png')"
+}
+
+else if (savedWP === "alien") {
+  document.body.style.backgroundImage = "url('WP2.jpg')"
+}
+
+else if (savedWP === "mushroom") {
+  document.body.style.backgroundImage = "url('WP3.jpg')"
+}
+
+else if (savedWP === "blue") {
+  document.body.style.backgroundImage = "url('WP4.jpg')"
+}
+
+else {
+  document.body.style.backgroundImage = "url('Landscape.png')"
+}
+
+// #endregion
+
+
+// #region Calculator app
+
+let firstNum
+let secondNum
+let step = 0
+let operation
+let result = 0
+let calcDisplay = document.getElementById("calcDisplay")
+
+
+let numArray = []
+let numArray2 = []
+
+// step 1: GET DA NUMBER AND PUT IT IN THE DISPLAY
+// step 2: PRESS AND SAVE OPERATOR
+// step 3: PRESS AND SAVE 2nd NUMBER
+// step 4: CALCULATE
+
+
+function getNumber (num) {
+  if (step === 0 || step === 1) {
+    numArray.push(num) //So here its gonna look like (1,2,3) : There are commas
+    step === 1
+    firstNum = Number(numArray.join('')) // This'll join the array into an actual number
+    calcDisplay.value = firstNum
+  }
+  else if (step === 2 || step === 3) {
+    numArray2.push(num)
+    secondNum = Number(numArray2.join(''))
+    calcDisplay.value = secondNum
+    step = 3
+  }
+  else if (step === 4) {
+    calcDisplay.style.fontSize = "30px"
+    calcDisplay.value = "Please Reset The Equation";
+  }
+}
+
+function getOperator(op) {
+  if (step === 4) {
+    calcDisplay.style.fontSize = "30px"
+    calcDisplay.value = "Please Reset The Equation";
+  }
+  else if (step === 3) {
+    calcDisplay.style.fontSize = "13px";
+    calcDisplay.value = "Please Equate. You cannot calculate with more than two numbers at a time"
+    console.log("PLS")
+  }
+  else {
+  step = 2
+  operation = op}
+
+}
+
+function clearDisplay () {
+  calcDisplay.style.fontSize = "50px";
+  calcDisplay.value = "0"
+  firstNum = null
+  secondNum = null
+  operation = null
+  result = 0
+  numArray = []
+  numArray2 = []
+  step = 0
+}
+
+function calculate () {
+  calcDisplay.style.fontSize = "50px";
+  if (operation === "+") {
+    result = firstNum + secondNum
+    calcDisplay.value = result
+
+  }
+  else if (operation === "-") {
+    result = firstNum - secondNum
+    calcDisplay.value = result
+
+  }
+  else if (operation === "*") {
+    result = firstNum * secondNum
+    calcDisplay.value = result
+
+  }
+  else if (operation === "/") {
+    result = firstNum / secondNum
+    calcDisplay.value = result
+  }
+  step = 4
+}
 // #endregion
