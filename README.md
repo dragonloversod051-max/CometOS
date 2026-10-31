@@ -2,7 +2,8 @@
 
 This is a WebOS designed for a fictional character- Comet of the continent of Alarica, a student at an academy known as the Arx Nubium.
 
-<img width="1440" height="813" alt="Screenshot 2026-09-23 at 7 18 12 PM" src="https://github.com/user-attachments/assets/e894e9e3-8f75-4bf6-af7e-4a179f99d673" />
+<img width="1440" height="813" alt="Screenshot 2026-10-31 at 4 19 16 PM" src="https://github.com/user-attachments/assets/a7cb298f-41aa-4636-bdcd-178135365067" />
+
 
 
 
